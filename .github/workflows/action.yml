@@ -3,7 +3,7 @@ name: Create an Artifact
 on: [push]
 
 env:
-  FILE_NAME: myartifact
+  ARTIFACT_NAME: myartifact
 
 jobs:
   job1:
@@ -17,5 +17,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ env.FILE_NAME }}
+        name: ${{ env.ARTIFACT_NAME }}
         path: .
