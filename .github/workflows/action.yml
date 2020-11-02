@@ -6,7 +6,7 @@ env:
   FILE_NAME: myartifact
 
 jobs:
-  build:
+  job1:
     name: checkout
     runs-on: ubuntu-latest
     steps:
