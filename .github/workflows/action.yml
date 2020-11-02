@@ -1,17 +1,19 @@
-name: artifact
+name: Create an Artifact
 
 on: [push]
 
 env:
-  FILE_NAME: artifact
+  FILE_NAME: myartifact
 
 jobs:
   build:
     name: checkout
     runs-on: ubuntu-latest
     steps:
+
     - name: Check out code
       uses: actions/checkout@v2
+
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
