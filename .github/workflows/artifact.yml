@@ -1,4 +1,4 @@
-name: Create an Artifact
+name: Artifact
 
 on: [push]
 
@@ -7,10 +7,8 @@ env:
 
 jobs:
   job1:
-    name: checkout
     runs-on: ubuntu-latest
     steps:
-
     - name: Check out code
       uses: actions/checkout@v2
 
