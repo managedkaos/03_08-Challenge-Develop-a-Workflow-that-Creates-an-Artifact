@@ -1,19 +1,32 @@
 name: Artifact
+# I like to use capital letters for the workflow name, your preference might differ
 
-on: [push]
+on: [push] 
+# Using brackets in case we want to add additoinal triggers later like pull requests
+# in that case we could add the next trigger to the list serperated by a comma
 
 env:
   ARTIFACT_NAME: myartifact
+# use the env keyword 
 
+# start the jobs section
 jobs:
-  job1:
+  # only one job so i'll use the job ID main
+  main:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ env.ARTIFACT_NAME }}
-        path: .
+      # create a template for adding actions
+      # naming steps is not a requirement but its helpful in conveying the intention of the steps and
+      # what the workflow is doing
+      # so we add name:  and then uses: to specify the action that this step will use when it runs
+      - name: Check out the code
+        uses: actions/checkout@v2
+        
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v2
+        # the upload-artifact action needs a couple paramaters passed to it, a name and a path
+        # the name is used to name the zip file that the action creates and the path is used to tell the action
+        # which files to add to the artifact
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: .
